@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html style="height: 100%; width:100%">
+
+<head>
+</head>
+
+<body id="body"
+    style="height: 100%; width: 100%; margin: 0; overflow-y: hidden; background-image: url(backgroundimg.jpg);">
+    <div id="loginBody"
+        style="display: inline;  position: absolute; height: 100%; width: 100%; margin: 0; box-sizing: border-box; padding-top: 15%;">
+        <div id="loginScreen"
+            style="height: 45%; width: 50%; max-width: 40em; margin: auto;  position: relative; border: 8px solid transparent;border-radius: 20px;background: linear-gradient(to right, rgb(52, 49, 49), black),linear-gradient(to right, red , blue);background-clip: padding-box, border-box;background-origin: padding-box, border-box;">
+            <h1
+                style="font-size: 300%;  color:whitesmoke; text-align: center; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font: bold;">
+                Welcome!</h1>
+            <p style="color:white; font-size: 200%; font-family: cursive; text-align: center;">
+                Login below
+            </p>
+            <p style="color:whitesmoke; text-align: center;"> first time login will create account! </p>
+            <div id="usernameDiv" style="margin: 0px auto; display: flex; justify-content: center;">
+                <div style="flex-grow: 1; width: 3em;"></div>
+                <input type="text" name="username" id="username" placeholder='enter username'
+                    style="width:50%; max-width: 20em; margin: 0 auto;">
+                <div style="height: 100%; width: 0.3em;"></div>
+                <button
+                    style="align-items: center;background: linear-gradient(to right, rgb(175, 17, 175) , blue); border-radius: 50px; cursor: pointer; color: whitesmoke; font-family: cursive; visibility: hidden;">Enter</button>
+                <div style="flex-grow: 1;"></div>
+
+            </div>
+            <div id="passwordDiv" style="margin: 0px auto; display: flex; justify-content: center;">
+                <div style="flex-grow: 1; width:3em"></div>
+                <input type="text" name="password" id="password" placeholder='enter non-private password'
+                    style="width:50%; max-width: 20em; margin: 0 auto;">
+                <div style="height: 100%; width: 0.3em;"></div>
+                <button id="usernameEnter" type="submit"
+                    style="align-items: center;background: linear-gradient(to right, rgb(175, 17, 175) , blue); border-radius: 50px; cursor: pointer; color: whitesmoke; font-family: cursive;">Enter</button>
+                <div style="flex-grow: 1;"></div>
+
+            </div>
+            <h1 id="accountExists" style="color: whitesmoke; text-align: center; visibility: hidden;">Wrong password or account already exists!</h1>
+        </div>
+    </div>
+    <div id="titleScreen"
+        style="display: none; flex-direction: column; justify-content: center; align-items: center; padding: 4%;">
+        <div
+            style="height: 39em; width: 28em; border: 8px solid transparent; display:flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px;background: linear-gradient(to right, rgb(52, 49, 49), black),linear-gradient(to right, red , blue);background-clip: padding-box, border-box;background-origin: padding-box, border-box; padding-bottom: 4em; padding-top: 0%;">
+            <h1 style="padding-top: 0%; color:white">Lunar Lander</h1>
+            <h1 id="welcome1" style="color:white">Lunar Lander!</h1>
+            <p style="color:white; font-family: cursive;"> Select a map below. </p>
+            <div>
+                <button style="border-radius: 10px; cursor: pointer;" id="earth">Earth! - (hard)</button>
+                <button style="border-radius: 10px; cursor: pointer;" id="mars">Mars! - (medium)</button>
+                <button style="border-radius: 10px; cursor: pointer;" id="moon">Moon! - (easy)</button>
+
+            </div>
+            <div id="leaderboardButtonDiv" style="margin-top: 2em;">
+                <button
+                    style="border-radius: 30px; cursor: pointer; width: 13em; height: 3em; font-family: cursive; font-size: larger;"
+                    id="leaderboard">Leaderboard</button>
+            </div>
+            <p
+                style="color: transparent; font-family: cursive;font-size: larger; margin-bottom: 0px; margin-top: 2em; background: -webkit-linear-gradient(red, blue); background-clip: border-box;   -webkit-background-clip: text;-webkit-text-fill-color: transparent;">
+                Change rocket color!</p>
+            <p style="color:white; font-family: cursive; margin-top: 0.5em;">Outer color:</p>
+            <div>
+                <button id="blueOutter"
+                    style="background-color: blue;border-radius: 50px; cursor: pointer;">Blue</button>
+                <button id="redOutter" style="background-color: red;border-radius: 50px; cursor: pointer;">Red</button>
+                <button id="purpleOutter"
+                    style="background-color: purple;border-radius: 50px; cursor: pointer;">Purple</button>
+                <button id="whiteOutter"
+                    style="background-color: white;border-radius: 50px; cursor: pointer;">White</button>
+                <button id="greenOutter"
+                    style="background-color: green;border-radius: 50px; cursor: pointer;">Green</button>
+                <button id="yellowOutter"
+                    style="background-color: yellow;border-radius: 50px; cursor: pointer;">Yellow</button>
+                <button id="orangeOutter"
+                    style="background-color: orange;border-radius: 50px; cursor: pointer;">Orange</button>
+                <button id="greyOutter"
+                    style="background-color: grey;border-radius: 50px; cursor: pointer;">Grey</button>
+
+            </div>
+            <p style="color:white; font-family: cursive;">Inner color:</p>
+            <div>
+                <button id="blueInner"
+                    style="background-color: blue;border-radius: 50px; cursor: pointer;">Blue</button>
+                <button id="redInner" style="background-color: red;border-radius: 50px; cursor: pointer;">Red</button>
+                <button id="purpleInner"
+                    style="background-color: purple;border-radius: 50px; cursor: pointer;">Purple</button>
+                <button id="whiteInner"
+                    style="background-color: white;border-radius: 50px; cursor: pointer;">White</button>
+                <button id="greenInner"
+                    style="background-color: green;border-radius: 50px; cursor: pointer;">Green</button>
+                <button id="yellowInner"
+                    style="background-color: yellow;border-radius: 50px; cursor: pointer;">Yellow</button>
+                <button id="orangeInner"
+                    style="background-color: orange;border-radius: 50px; cursor: pointer;">Orange</button>
+                <button id="greyInner"
+                    style="background-color: grey;border-radius: 50px; cursor: pointer;">Grey</button>
+
+            </div>
+            <div style="padding:1em"></div>
+            <div id="titleScreenLander" style="padding: 2em; position: relative;">
+                <div id="landerDiv-0"
+                    style="width: 80px;height: 80px; transform:rotate(0 deg); position:absolute; left: 0px; top: 0px; display: none;">
+                    <svg id="landerSvg" style="stroke: grey;stroke-width:4;" fill="white" viewBox="0,0,100,100">
+                        <polygon points="43,2 57,2 74,18 74,32 57,48 43,48 26,32 26,18" />
+                        <rect x="26" y="48" height="20" width="48" rx="5" />
+                        <rect x="40" y="48" height="20" width="20" />
+                        <line x1="26" y1="58" x2="10" y2="98" />
+                        <line x1="74" y1="58" x2="90" y2="98" />
+                        <line x1="2" y1="98" x2="20" y2="98" />
+                        <line x1="80" y1="98" x2="98" y2="98" />
+                        <line x1="43" y1="2" x2="43" y2="48" />
+                        <line x1="57" y1="2" x2="57" y2="48" />
+                        <line x1="43" y1="18" x2="26" y2="18" />
+                        <line x1="43" y1="32" x2="26" y2="32" />
+                        <line x1="57" y1="18" x2="74" y2="18" />
+                        <line x1="57" y1="32" x2="74" y2="32" />
+                        <path d="M42.5,75 a1,1 0 1,1 15,0" />
+                        <polygon id="outterFlame" points="42,76 58,76 50,99"
+                            style="stroke:blue;stroke-width:3;visibility:hidden" fill="red" />
+                        <polygon id="innerFlame" points="46,76 54,76 50,87"
+                            style="stroke:blue;stroke-width:0.5;visibility:hidden" fill="orange" />
+                    </svg>
+                </div>
+                <div id="landerDiv2"
+                    style="width: 80px;height: 80px; transform:rotate(0 deg); position:absolute; left: 0px; top: 100px; display: none;">
+                    <svg id="landerSvg2" style="stroke: grey;stroke-width:4;" fill="white" viewBox="0,0,100,100">
+                        <polygon points="43,2 57,2 74,18 74,32 57,48 43,48 26,32 26,18" />
+                        <rect x="26" y="48" height="20" width="48" rx="5" />
+                        <rect x="40" y="48" height="20" width="20" />
+                        <line x1="26" y1="58" x2="10" y2="98" />
+                        <line x1="74" y1="58" x2="90" y2="98" />
+                        <line x1="2" y1="98" x2="20" y2="98" />
+                        <line x1="80" y1="98" x2="98" y2="98" />
+                        <line x1="43" y1="2" x2="43" y2="48" />
+                        <line x1="57" y1="2" x2="57" y2="48" />
+                        <line x1="43" y1="18" x2="26" y2="18" />
+                        <line x1="43" y1="32" x2="26" y2="32" />
+                        <line x1="57" y1="18" x2="74" y2="18" />
+                        <line x1="57" y1="32" x2="74" y2="32" />
+                        <path d="M42.5,75 a1,1 0 1,1 15,0" />
+                        <polygon id="outterFlame2" points="42,76 58,76 50,99"
+                            style="stroke:blue;stroke-width:3;visibility:hidden" fill="red" />
+                        <polygon id="innerFlame2" points="46,76 54,76 50,87"
+                            style="stroke:blue;stroke-width:0.5;visibility:hidden" fill="orange" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="leaderboardDiv"
+        style="position: absolute; height: 100%; width: 100%; margin: 0; box-sizing: border-box; padding-top: 15%; display: none;">
+        <div id="leaderboardBody"
+            style="height: 28em; width: 25em; margin: auto;  position: relative; border: 8px solid transparent;border-radius: 20px;background: linear-gradient(to right, rgb(52, 49, 49), black),linear-gradient(to right, red , blue);background-clip: padding-box, border-box;background-origin: padding-box, border-box;">
+            <h1
+                style="font-family: cursive; font-size: x-large; text-align: center; color: whitesmoke; padding-bottom: 1em;">
+                Top 10 Players</h1>
+            <div style="display: flex; justify-content: center;">
+                <label for="menutType"
+                    style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">Filter
+                    By Map</label>
+                <select name="menuType" id="menuType">
+                    <option value="earth">Earth</option>
+                    <option value="mars">Mars</option>
+                    <option value="moon">Moon</option>
+                </select>
+                <button onclick="newLeaderboard()">Filter</button>
+
+            </div>
+            <div style="height: 17em;">
+                <h1 id="1"
+                    style="padding-top: 0%; padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    1.</h1>
+                <h1 id="2"
+                    style=" padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    2. </h1>
+                <h1 id="3"
+                    style=" padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    3. </h1>
+                <h1 id="4"
+                    style=" padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    4. </h1>
+                <h1 id="5"
+                    style=" padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    5. </h1>
+                <h1 id="6"
+                    style=" padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    6. </h1>
+                <h1 id="7"
+                    style=" padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    7. </h1>
+                <h1 id="8"
+                    style=" padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    8. </h1>
+                <h1 id="9"
+                    style=" padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    9. </h1>
+                <h1 id="10"
+                    style=" padding-left: 1em; font-size: small; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: whitesmoke;">
+                    10. </h1>
+
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <div style="flex-grow: 1;">
+
+                </div>
+                <div>
+                    <button id="leaveLeaderboard"
+                        style="border-radius: 10px; cursor: pointer; width: 11em; height: 2em; font-family: cursive; font-size: larger;">Return
+                        To Menu</button>
+                </div>
+                <div style="flex-grow: 1;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="gameDiv"
+        style="width: 100%; height:100%; display: none; position: relative; flex-direction: column; overflow: hidden;">
+        <div id="flyingSpace"
+            style="background-image: url('backgroundimg.jpg'); background-size: cover; flex-grow: 10; position:relative;">
+            <div id="landingDiv"
+                style="position: absolute; position:absolute; height:3em; width:9em; right:7em; bottom:-4em; z-index:99">
+                <svg id="landingPad" viewbox="0,0,100,30">
+                    <line x1="100" y1="0" x2="0" y2="0" style="stroke:rgb(0, 0, 0);stroke-width:4" />
+                    <rect x="10" y="10" width="80" height="20"
+                        style="fill:rgb(255, 0, 0);stroke:black;stroke-width:3;stroke-opacity:0.9" />
+                    <line x1="20" y1="0" x2="20" y2="10" style="stroke:rgb(0, 0, 0);stroke-width:4" />
+                    <line x1="40" y1="0" x2="40" y2="10" style="stroke:rgb(0, 0, 0);stroke-width:4" />
+                    <line x1="60" y1="0" x2="60" y2="10" style="stroke:rgb(0, 0, 0);stroke-width:4" />
+                    <line x1="80" y1="0" x2="80" y2="10" style="stroke:rgb(0, 0, 0);stroke-width:4" />
+                </svg>
+            </div>
+            <div id="debrisDiv" style="display:none; position:absolute; width: 80px; height: 80px;" viewbox="0,0,65,65">
+                <svg id="debris" height="80px" width="80px"
+                    style="position:absolute; stroke: grey; fill: rgb(255, 255, 255)">
+                    <polygon
+                        points="10,7 14,2 20,3 30,4 40,10 50,16 55,27 57,35 58,45 55,50 56,54 47,60 45,65 37,63 35,60 30,61 25,58 20,55 15,55 13,52 10,50 7,45 5,30 2, 15"
+                        style="stroke-width: 10;" />
+                </svg>
+            </div>
+        </div>
+        <div id="ground" style="background-size: cover; background-image: url('grass.jpg'); position: relative;">
+            <canvas id="gauge"></canvas>
+            <canvas id="gauge2"></canvas>
+            <canvas id="gauge3"></canvas>
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="Soundtrack.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="thrusterSound" loop>
+        <source src="thrusters.wav" type="audio/wav">
+    </audio>
+    <audio id="Explosion">
+        <source src="explosion.mp3" type="audio/wav">
+    </audio>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="gauge.min.js"></script>
+    <script>
+
+        // my code
+        const sock = io();
+        let map = 1
+        function newLeaderboard() {
+            map = document.getElementById("menuType").value
+            if (map == "earth") {
+                map = 3
+            }
+            else if (map == "mars") {
+                map = 2
+            }
+            else {
+                map = 1
+            }
+            getLeaderboard(map)
+        }
+
+        document.getElementById("leaderboard").addEventListener("click", newLeaderboard)
+        document.getElementById("leaveLeaderboard").addEventListener("click", leaveLeaderboard)
+
+        function leaveLeaderboard() {
+            document.getElementById("leaderboardDiv").style.display = "none"
+            document.getElementById("titleScreen").style.display = "flex"
+            document.getElementById("landerSvg").style.display = "inline"
+        }
+
+        function getLeaderboard(map) {
+            sock.emit('leaderboard', map)
+            document.getElementById("titleScreen").style.display = "none"
+            document.getElementById("landerSvg").style.display = "none"
+            document.getElementById("leaderboardDiv").style.display = "inline"
+        }
+        function setLeaderboard(data) {
+            for (let i = 0; i < 10; i++) {
+                document.getElementById(i + 1).innerText = " ";
+            }
+
+            for (let i = 0; i < 10; i++) {
+                document.getElementById(i + 1).innerText = (i + 1) + ". Name: " + data[i].username + " --- Score: " + data[i].score + " --- Date: " + data[i].time.split(" ")[0]
+            }
+
+        }
+        var input = document.getElementById("username")
+        input.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Trigger the button element with a click
+                document.getElementById("usernameEnter").click();
+            }
+        });
+
+        sock.on('message', (data) => {
+            data = JSON.parse(data)
+            setLeaderboard(data)
+
+        })
+
+        let windCount = 0
+        let angleDelta = 1.5
+        let turnRight = false
+        let turnLeft = false
+        let gravity = 0 // UNITS = "m/s^2"
+        let xVelocity = 0
+        let yVelocity = 0
+        let thrust = 45000 // UNITS = "NEWTONS = kgm/s^2"
+        let earth = false
+        let mars = false
+        let moon = false
+        let mspf = 16
+        let windVelocity = 0
+        let dragCoefficient = 10000 / 6
+        let maxWindV = 0
+        let mass = 15000 // UNITS = "kg"
+        var gameLoopTimerID
+        let gameRunning = false
+        let debrisArray = []
+        let debrisDivDom = document.getElementById("debrisDiv")
+        let debrisDom = document.getElementById("debris")
+        let timer = 0
+        let landerDom = document.getElementById("landerDiv-0");
+        let landerDom2 = document.getElementById("landerDiv2");
+        let gameDom = document.getElementById("gameDiv");
+        let titleScreenDom = document.getElementById("titleScreenLander")
+        let player2joined = false;
+
+        class PlayerInfo {
+            constructor() {
+                this.reset()
+            }
+
+            resetPhysics() {
+                this.thrustOn = false
+                this.angle = 0
+                this.flameStrength = 0
+                this.x = 300
+                this.y = -100
+                this.crash = false
+                this.gas = 1000
+            }
+            reset() {
+                this.innerColor = 'white'
+                this.outerColor = 'grey'
+                this.resetPhysics()
+            }
+        }
+        playerInfos = []
+        let myLander = new PlayerInfo()
+        playerInfos.push(myLander)
+
+        for (i = 0; i < 99; i++) {
+            let newDebris = debrisDom.cloneNode(true)
+            debrisDivDom.appendChild(newDebris)
+        }
+
+
+        for (i = 0; i < 99; i++) {
+            let newDebris = debrisDom.cloneNode(true)
+            debrisDivDom.appendChild(newDebris)
+        }
+        for (i = 0; i < debrisDivDom.children.length; i++) {
+            debrisArray.push({ xVelocity: 0, yVelocity: 0, angle: 0, dom: debrisDivDom.children[i] })
+        }
+
+
+        document.getElementById("usernameEnter").addEventListener("click", getUsername)
+        document.getElementById("earth").addEventListener("click", loadEarth)
+        document.getElementById("mars").addEventListener("click", loadMars)
+        document.getElementById("moon").addEventListener("click", loadMoon)
+        document.getElementById("blueOutter").addEventListener("click", () => { setOuterBorder("blue") })
+        document.getElementById("blueOutter").addEventListener("mouseover", () => { scaleButtonUp("blueOutter") })
+        document.getElementById("blueOutter").addEventListener("mouseleave", () => { scaleButtonDown("blueOutter") })
+
+        document.getElementById("redOutter").addEventListener("click", () => { setOuterBorder("red") })
+        document.getElementById("redOutter").addEventListener("mouseover", () => { scaleButtonUp("redOutter") })
+        document.getElementById("redOutter").addEventListener("mouseleave", () => { scaleButtonDown("redOutter") })
+
+        document.getElementById("orangeOutter").addEventListener("click", () => { setOuterBorder("orange") })
+        document.getElementById("orangeOutter").addEventListener("mouseover", () => { scaleButtonUp("orangeOutter") })
+        document.getElementById("orangeOutter").addEventListener("mouseleave", () => { scaleButtonDown("orangeOutter") })
+
+        document.getElementById("purpleOutter").addEventListener("click", () => { setOuterBorder("purple") })
+        document.getElementById("purpleOutter").addEventListener("mouseover", () => { scaleButtonUp("purpleOutter") })
+        document.getElementById("purpleOutter").addEventListener("mouseleave", () => { scaleButtonDown("purpleOutter") })
+
+        document.getElementById("whiteOutter").addEventListener("click", () => { setOuterBorder("white") })
+        document.getElementById("whiteOutter").addEventListener("mouseover", () => { scaleButtonUp("whiteOutter") })
+        document.getElementById("whiteOutter").addEventListener("mouseleave", () => { scaleButtonDown("whiteOutter") })
+
+        document.getElementById("greenOutter").addEventListener("click", () => { setOuterBorder("green") })
+        document.getElementById("greenOutter").addEventListener("mouseover", () => { scaleButtonUp("greenOutter") })
+        document.getElementById("greenOutter").addEventListener("mouseleave", () => { scaleButtonDown("greenOutter") })
+
+        document.getElementById("yellowOutter").addEventListener("click", () => { setOuterBorder("yellow") })
+        document.getElementById("yellowOutter").addEventListener("mouseover", () => { scaleButtonUp("yellowOutter") })
+        document.getElementById("yellowOutter").addEventListener("mouseleave", () => { scaleButtonDown("yellowOutter") })
+
+        document.getElementById("greyOutter").addEventListener("click", () => { setOuterBorder("grey") })
+        document.getElementById("greyOutter").addEventListener("mouseover", () => { scaleButtonUp("greyOutter") })
+        document.getElementById("greyOutter").addEventListener("mouseleave", () => { scaleButtonDown("greyOutter") })
+
+        document.getElementById("blueInner").addEventListener("click", () => { setInnerColor("blue") })
+        document.getElementById("blueInner").addEventListener("mouseover", () => { scaleButtonUp("blueInner") })
+        document.getElementById("blueInner").addEventListener("mouseleave", () => { scaleButtonDown("blueInner") })
+
+        document.getElementById("redInner").addEventListener("click", () => { setInnerColor("red") })
+        document.getElementById("redInner").addEventListener("mouseover", () => { scaleButtonUp("redInner") })
+        document.getElementById("redInner").addEventListener("mouseleave", () => { scaleButtonDown("redInner") })
+
+        document.getElementById("orangeInner").addEventListener("click", () => { setInnerColor("orange") })
+        document.getElementById("orangeInner").addEventListener("mouseover", () => { scaleButtonUp("orangeInner") })
+        document.getElementById("orangeInner").addEventListener("mouseleave", () => { scaleButtonDown("orangeInner") })
+
+        document.getElementById("purpleInner").addEventListener("click", () => { setInnerColor("purple") })
+        document.getElementById("purpleInner").addEventListener("mouseover", () => { scaleButtonUp("purpleInner") })
+        document.getElementById("purpleInner").addEventListener("mouseleave", () => { scaleButtonDown("purpleInner") })
+
+        document.getElementById("whiteInner").addEventListener("click", () => { setInnerColor("white") })
+        document.getElementById("whiteInner").addEventListener("mouseover", () => { scaleButtonUp("whiteInner") })
+        document.getElementById("whiteInner").addEventListener("mouseleave", () => { scaleButtonDown("whiteInner") })
+
+        document.getElementById("greenInner").addEventListener("click", () => { setInnerColor("green") })
+        document.getElementById("greenInner").addEventListener("mouseover", () => { scaleButtonUp("greenInner") })
+        document.getElementById("greenInner").addEventListener("mouseleave", () => { scaleButtonDown("greenInner") })
+
+        document.getElementById("yellowInner").addEventListener("click", () => { setInnerColor("yellow") })
+        document.getElementById("yellowInner").addEventListener("mouseover", () => { scaleButtonUp("yellowInner") })
+        document.getElementById("yellowInner").addEventListener("mouseleave", () => { scaleButtonDown("yellowInner") })
+
+        document.getElementById("greyInner").addEventListener("click", () => { setInnerColor("grey") })
+        document.getElementById("greyInner").addEventListener("mouseover", () => { scaleButtonUp("greyInner") })
+        document.getElementById("greyInner").addEventListener("mouseleave", () => { scaleButtonDown("greyInner") })
+        let mapID;
+        function scaleButtonUp(button) {
+            document.getElementById(button).style.transform = "scale(1.10)"
+        }
+        function scaleButtonDown(button) {
+            document.getElementById(button).style.transform = "scale(1.00)"
+        }
+
+
+        function getUsername() {
+            let username = document.getElementById("username").value
+            let password = document.getElementById("password").value
+
+            let userInfo = {
+                name: username,
+                password: password
+            }
+            sock.emit("name", userInfo)
+
+        }
+        sock.on("exists", function (data) {
+            document.getElementById("accountExists").style.visibility = "visible"
+        })
+        sock.on("doesnt", function (data) {
+            loginConfirmed(document.getElementById("username").value)
+        })
+        function loginConfirmed(username) {
+            document.getElementById("loginBody").style.display = "none";
+            document.getElementById("titleScreen").style.display = "flex";
+            landerDom.style.display = "inline";
+
+            document.getElementById("welcome1").innerText = "Welcome, " + username + "!"
+        }
+
+        function setOuterBorder(color) {
+            myLander.outerColor = color
+            document.getElementById("landerSvg").style.stroke = color
+            for (let i = 0; i < debrisArray.length; i++) {
+                debrisArray[i].dom.style.stroke = color
+            }
+        }
+        function setInnerColor(color) {
+            myLander.innerColor = color
+            document.getElementById("landerSvg").style.fill = color
+            for (let i = 0; i < debrisArray.length; i++) {
+                debrisArray[i].dom.style.fill = color
+            }
+        }
+        function loadEarth() {
+            mapID = 3
+            earth = true
+            maxWindV = 30
+            document.getElementById("ground").style.backgroundImage = `url("grass.jpg")`
+            runGame()
+        }
+        function loadMars() {
+            mapID = 2
+            mars = true
+            maxWindV = 12
+            document.getElementById("ground").style.backgroundImage = `url("mars-water.jpg")`
+            runGame()
+        }
+
+        function loadMoon() {
+            mapID = 1
+            moon = true
+            maxWindV = 0
+            document.getElementById("ground").style.backgroundImage = `url("moon.jpg")`
+            runGame()
+        }
+        function gameEnd() {
+            //move lander DOM to titlescreen from gameDiv
+            landerDom.style.transform = `rotate(0deg)`
+            landerDom.parentNode.removeChild(landerDom)
+            document.getElementById("titleScreenLander").appendChild(landerDom)
+            landerDom.style.top = "0px"
+            landerDom.style.left = "0px"
+
+            moon = false
+            earth = false
+            mars = false
+
+            sock.emit("leftSpace")
+            gameRunning = false
+            playerStatusChange()
+
+            clearInterval(gameLoopTimerID)
+            document.getElementById("backgroundMusic").pause()
+            document.getElementById("titleScreen").style.display = "flex"
+            document.getElementById("gameDiv").style.display = "none"
+            landerDom.style.display = "flex"
+
+            // wait until other players finish
+            // display times
+            let firstPlace = username.value
+            let secondPlace = ""
+            //alert("First Place: " + firstPlace + " " + timer + " seconds" + " \n" + "Second Place: " + secondPlace)
+        }
+        function Explosion() {
+            document.getElementById("debrisDiv").display = "inline"
+            myLander.crash = true
+            let velocity = Math.sqrt(Math.pow(yVelocity, 2) + Math.pow(xVelocity, 2))
+            velocity /= 1.3
+            velocity += 10 // add minimum crash size
+            for (i = 0; i < debrisArray.length; i++) {
+                let angle = Math.random() * Math.PI
+                let random = Math.random()
+                debrisArray[i].yVelocity = velocity * Math.sin(angle) * random
+                debrisArray[i].xVelocity = velocity * Math.cos(angle) * random
+                debrisArray[i].y = myLander.y
+                debrisArray[i].x = myLander.x
+                debrisArray[i].spinRate = (Math.random() - 0.5) * 30
+                debrisArray[i].angle = (Math.random() * 360)
+                debrisArray[i].scale = Math.random() / 5 + 0.1
+
+                let dom = debrisArray[i].dom
+                dom.style.left = `${myLander.x}px`
+                dom.style.top = `${-myLander.y}px`
+            }
+            setTimeout(gameEnd, 3000)
+            landerDom.style.display = "none"
+            document.getElementById("innerFlame").style.visibility = "hidden"
+            document.getElementById("outterFlame").style.visibility = "hidden"
+            document.getElementById("debrisDiv").style.display = "inline"
+            document.getElementById("Explosion").load()
+            document.getElementById("Explosion").play()
+            document.getElementById("thrusterSound").pause()
+            document.getElementById("backgroundMusic").pause()
+
+        }
+        
+        function playerStatusChange() {
+            if (gameRunning) {
+                if (landerDom.parentNode != gameDom) {
+                    if (landerDom.parentNode != null) {
+                        landerDom.parentNode.removeChild(landerDom)
+                    }
+                    gameDom.appendChild(landerDom)
+                    landerDom.style.display = "flex"
+                }
+                if (player2joined) {
+                    if (landerDom2.parentNode != gameDom) {
+                        if (landerDom2.parentNode != null) {
+                            landerDom2.parentNode.removeChild(landerDom2)
+                        }
+                        gameDom.appendChild(landerDom2)
+                        landerDom2.style.display = "flex"
+                    }
+                }
+                else {
+                    if (landerDom2.parentNode == gameDom) {
+                        gameDom.removeChild(landerDom2)
+                        landerDom2.style.display = "none"
+                    }
+
+                }
+                // check if player2 joined
+                // check if player2 left
+            }
+            else {
+                if (landerDom.parentNode == gameDom) {
+                    gameDom.removeChild(landerDom)
+                    titleScreenDom.appendChild(landerDom)
+                    landerDom.style.top = "0px"
+                    landerDom.style.left = "0px"
+                    landerDom.style.transform = `rotate(0deg)`
+                }
+                if (landerDom2.parentNode == gameDom) {
+                    gameDom.removeChild(landerDom2)
+                    landerDom2.style.top = "0px"
+                    landerDom2.style.left = "0px"
+                    landerDom2.style.transform = `rotate(0deg)`
+                }
+            }
+        }
+        function runGame() {
+            document.getElementById("debrisDiv").style.display = "none"
+            document.getElementById("backgroundMusic").volume = "0.7"
+            thrust = 45000
+            windCount = 0
+            yVelocity = 0
+            xVelocity = 0
+            windVelocity = 0
+
+            sock.emit("enteredSpace")
+            gameRunning = true
+            playerStatusChange()
+
+            myLander.resetPhysics()
+
+            timer = 0
+
+            //move lander DOM from titlescreen to gameDiv
+
+            landerDom.parentNode.removeChild(landerDom)
+            document.getElementById("gameDiv").appendChild(landerDom)
+
+            gameRunning = true
+            xVelocity = 0
+            yVelocity = 0
+            document.getElementById("titleScreen").style.display = "none"
+            document.getElementById("gameDiv").style.display = "flex"
+            document.getElementById("backgroundMusic").load()
+            document.getElementById("backgroundMusic").play()
+
+            // calling 3rd party API https://bernii.github.io/gauge.js/
+            var opts =
+            {
+                angle: 0.15, // The span of the gauge arc
+                lineWidth: 0.44, // The line thickness
+                radiusScale: 1, // Relative radius
+                pointer:
+                {
+                    length: 0.6, // // Relative to gauge radius
+                    strokeWidth: 0.08, // The thickness
+                    color: '#000000' // Fill color
+                },
+                limitMax: false,     // If false, max value increases automatically if value > maxValue
+                limitMin: false,     // If true, the min value of the gauge will be fixed
+                colorStart: '#6FADCF',   // Colors
+                colorStop: 'Red',    // just experiment with them
+                strokeColor: '#E0E0E0',  // to see which ones work best for you
+                generateGradient: true,
+                highDpiSupport: true,     // High resolution support
+                staticLabels:
+                {
+                    font: "10px sans-serif",  // Specifies font
+                    labels: [0, 25, 50, 75, 100],  // Print labels at these values
+                    color: "white",  // Optional: Label text color
+                    fractionDigits: 0  // Optional: Numerical precision. 0=round off.
+                },
+            };
+
+            var opts2 =
+            {
+                angle: 0.15, // The span of the gauge arc
+                lineWidth: 0.44, // The line thickness
+                radiusScale: 1, // Relative radius
+                pointer:
+                {
+                    length: 0.6, // // Relative to gauge radius
+                    strokeWidth: 0.08, // The thickness
+                    color: '#000000' // Fill color
+                },
+                limitMax: false,     // If false, max value increases automatically if value > maxValue
+                limitMin: false,     // If true, the min value of the gauge will be fixed
+                colorStart: '#6FADCF',   // Colors
+                colorStop: 'Red',    // just experiment with them
+                strokeColor: '#E0E0E0',  // to see which ones work best for you
+                generateGradient: true,
+                highDpiSupport: true,     // High resolution support
+                staticLabels:
+                {
+                    font: "10px sans-serif",  // Specifies font
+                    labels: [0, 250, 500, 750, 1000],  // Print labels at these values
+                    color: "white",  // Optional: Label text color
+                    fractionDigits: 0  // Optional: Numerical precision. 0=round off.
+                },
+            }
+            var target = document.getElementById("gauge"); // your canvas element
+            var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+            gauge.maxValue = 100; // set max gauge value
+            gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+            gauge.animationSpeed = 32; // set animation speed (32 is default value)
+
+            // opts.staticLabels.labels = [-25, -10, 0, 10, 25]
+            opts.colorStop = "#E0E0E0"
+            var target2 = document.getElementById("gauge2"); // your canvas element
+            var gauge2 = new Gauge(target2).setOptions(opts); // create sexy gauge!
+            gauge2.maxValue = 25; // set max gauge value
+            gauge2.setMinValue(-25);  // Prefer setter over gauge.minValue = 0
+            gauge2.animationSpeed = 32; // set animation speed (32 is default value)
+
+            opts.colorStop = "#E0E0E0"
+            var target3 = document.getElementById("gauge3"); // your canvas element
+            var gauge3 = new Gauge(target3).setOptions(opts2); // create sexy gauge!
+            gauge3.maxValue = 1000; // set max gauge value
+            gauge3.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+            gauge3.animationSpeed = 32; // set animation speed (32 is default value)
+
+
+            if (earth) {
+                gravity = -9.8
+                thrust = thrust * (9.8 / 1.62)
+
+            }
+            else if (mars) {
+                gravity = -3.71
+                thrust = thrust * (9.8 / 3.71)
+            }
+            else if (moon) {
+                gravity = -1.62
+            }
+
+            let counter = 0
+            gameLoopTimerID = setInterval(() => {
+                if (gameRunning) {
+
+                    let landingPadDom = document.getElementById("landingDiv")
+                    let flyingSpaceDom = document.getElementById("flyingSpace")
+                    windCount++
+                    if (windCount > 3000 / mspf) {
+                        windCount = 0
+                        windChange(-maxWindV, maxWindV)
+                    }
+
+                    if (myLander.crash == false) {
+                        timer++
+
+                        // always have gravity and wind
+                        let yForce = mass * gravity
+                        let xForce = windVelocity * dragCoefficient
+
+                        // add thrust force
+                        if (myLander.thrustOn) {
+                            yForce += thrust * Math.cos(myLander.angle * Math.PI / 180)
+                            xForce += thrust * Math.sin(myLander.angle * Math.PI / 180)
+                            myLander.gas -= 1
+                            if (myLander.gas <= 0) {
+                                myLander.thrustOn = false
+                                myLander.flameStrength = 0
+                                myLander.gas = 0
+                                turnRight = false
+                                turnLeft = false
+                            }
+                        }
+
+                        // dv=(Fnet/m)*dt
+                        yVelocity += (yForce / mass) * (mspf / 1000)
+                        xVelocity += (xForce / mass) * (mspf / 1000)
+
+                        // ds=v*dt
+                        myLander.y += yVelocity * (mspf / 1000) * 15
+                        myLander.x += xVelocity * (mspf / 1000) * 15
+                        if (myLander.thrustOn || turnLeft || turnRight) {
+                            myLander.flameStrength += 1
+                            if (myLander.flameStrength > 30) {
+                                myLander.flameStrength = 30
+                            }
+                        }
+                        else {
+                            myLander.flameStrength -= 1
+                            if (myLander.flameStrength < 0) {
+                                myLander.flameStrength = 0
+                            }
+                        }
+                        landerDom.style.transform = `rotate(${myLander.angle}deg)`
+                        landerDom.style.left = `${myLander.x}px`
+                        landerDom.style.top = `${-myLander.y}px`
+                        if (myLander.flameStrength > 0) {
+                            document.getElementById("innerFlame").style.visibility = "visible"
+                            document.getElementById("outterFlame").style.visibility = "visible"
+                            document.getElementById("outterFlame").setAttribute("points", `42,76 58,76 50,${76 + 23 * (myLander.flameStrength / 30)}`)
+                            document.getElementById("innerFlame").setAttribute("points", `46,76 54,76 50,${76 + 11 * (myLander.flameStrength / 30)}`)
+                        }
+                        else {
+                            document.getElementById("innerFlame").style.visibility = "hidden"
+                            document.getElementById("outterFlame").style.visibility = "hidden"
+                        }
+
+                        if (turnLeft == true) {
+                            myLander.angle -= angleDelta
+                        }
+                        if (turnRight == true) {
+                            myLander.angle += angleDelta
+                        }
+                        if (myLander.flameStrength > 0) {
+                            document.getElementById("thrusterSound").play()
+                            document.getElementById("thrusterSound").volume = myLander.flameStrength / 30
+                        }
+                        if (myLander.flameStrength == 0) {
+                            document.getElementById("thrusterSound").pause()
+                        }
+                        if (landerDom.offsetTop + landerDom.offsetHeight >= landingPadDom.offsetTop) {
+                            if ((Math.abs(yVelocity) > 5 || Math.abs(xVelocity) > 5) || myLander.angle > 10) {
+                                Explosion()
+                            }
+                            else if (landerDom.offsetLeft >= landingPadDom.offsetLeft &&
+                                landerDom.offsetLeft + landerDom.offsetWidth <= landingPadDom.offsetLeft + landingPadDom.offsetWidth) {
+                                landerDom.style.transform = `rotate(0deg)`
+                                document.getElementById("innerFlame").style.visibility = "hidden"
+                                document.getElementById("outterFlame").style.visibility = "hidden"
+                                document.getElementById("thrusterSound").pause()
+                                let gameInfo = {
+                                    name: username.value,
+                                    time: Math.round((1 / (timer)) * 100000),
+                                    map: mapID
+                                };
+                                alert("You landed safely with a score of " + gameInfo.time + "!")
+                                stringInfo = JSON.stringify(gameInfo)
+                                sock.emit("gamewon", stringInfo)
+                                gameEnd()
+                            }
+                            else if ((landerDom.offsetLeft < landingPadDom.offsetLeft &&
+                                landerDom.offsetLeft + landerDom.offsetWidth < landingPadDom.offsetLeft + landingPadDom.offsetWidth) ||
+                                (landerDom.offsetLeft < landingPadDom.offsetLeft + landingPadDom.offsetWidth &&
+                                    landerDom.offsetLeft + landerDom.offsetWidth > landingPadDom.offsetLeft + landingPadDom.offsetWidth)) {
+                                Explosion()
+                            }
+                        }
+                        else {
+                            if (landerDom.offsetLeft > flyingSpaceDom.offsetWidth - landerDom.offsetWidth) {
+                                myLander.x = flyingSpaceDom.offsetWidth - landerDom.offsetWidth
+                                xVelocity = 0
+                            }
+                            else if (myLander.x < 0) {
+                                myLander.x = 0
+                                xVelocity = 0
+                            }
+                            if (myLander.y > 0) {
+                                myLander.y = 0
+                                yVelocity = 0
+                            }
+                        }
+                        let velocity = Math.abs(xVelocity) + Math.abs(yVelocity)
+                        gauge.set((myLander.flameStrength / 30) * 100); // set actual value
+                        gauge2.set(yVelocity)
+                        gauge3.set(myLander.gas)
+                    }
+                    else {
+                        for (let i = 0; i < debrisArray.length; i++) {
+                            debrisArray[i].x += (debrisArray[i].xVelocity * mspf / 1000) * 15
+                            debrisArray[i].dom.style.left = `${debrisArray[i].x}px`
+                            debrisArray[i].yVelocity += gravity * (mspf / 1000)
+                            debrisArray[i].y += (debrisArray[i].yVelocity * mspf / 1000) * 15
+                            debrisArray[i].dom.style.top = `${-debrisArray[i].y}px`
+                            debrisArray[i].angle += debrisArray[i].spinRate
+                            debrisArray[i].dom.style.transform = `scale(${debrisArray[i].scale}) rotate(${debrisArray[i].angle}deg)`
+                        }
+                    }
+                }
+                let data = JSON.stringify(myLander)
+                sock.emit('data', data)
+            }, mspf);
+            sock.on("entered", function (data) {
+                player2joined = true;
+                playerStatusChange();
+            })
+            sock.on("left", function (data) {
+                player2joined = false;
+                playerStatusChange();
+            })
+            sock.on('playerData', function (playerData) {
+                parsedPlayerData = JSON.parse(playerData)
+                landerDom2.style.transform = `rotate(${parsedPlayerData.angle}deg)`
+                landerDom2.style.left = `${parsedPlayerData.x}px`
+                landerDom2.style.top = `${-parsedPlayerData.y}px`
+                document.getElementById("landerSvg2").style.fill = parsedPlayerData.innerColor
+                document.getElementById("landerSvg2").style.stroke = parsedPlayerData.outerColor
+
+                if (parsedPlayerData.flameStrength > 0) {
+                    document.getElementById("innerFlame2").style.visibility = "visible"
+                    document.getElementById("outterFlame2").style.visibility = "visible"
+                    document.getElementById("outterFlame2").setAttribute("points", `42,76 58,76 50,${76 + 23 * (parsedPlayerData.flameStrength / 30)}`)
+                    document.getElementById("innerFlame2").setAttribute("points", `46,76 54,76 50,${76 + 11 * (parsedPlayerData.flameStrength / 30)}`)
+                }
+                else {
+                    document.getElementById("innerFlame2").style.visibility = "hidden"
+                    document.getElementById("outterFlame2").style.visibility = "hidden"
+                }
+
+
+            })
+
+            function windChange(min, max) {
+                if (windVelocity > 0) {
+                    max = max - windVelocity
+                }
+                else if (windVelocity < 0) {
+                    min = min - windVelocity
+                }
+                return windVelocity = windVelocity + (Math.floor(Math.random() * (max - min + 1)) + min);
+            }
+
+            document.getElementById("body").addEventListener("keydown", keydown)
+            document.getElementById("body").addEventListener("keyup", keyup)
+            function keydown(e) {
+                if (e.keyCode == 38) {
+                    if (myLander.gas > 0) {
+                        myLander.thrustOn = true
+                    }
+                }
+                else if (e.keyCode == 37) {
+                    if (myLander.gas > 0) {
+                        turnLeft = true
+                    }
+                }
+                else if (e.keyCode == 39) {
+                    if (myLander.gas > 0) {
+                        turnRight = true
+                    }
+                }
+            }
+            function keyup(e) {
+                if (e.keyCode == 38) {
+                    myLander.thrustOn = false;
+                }
+                else if (e.keyCode == 37) {
+                    turnLeft = false
+                }
+                else if (e.keyCode == 39) {
+                    turnRight = false
+                }
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
